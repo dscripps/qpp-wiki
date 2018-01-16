@@ -31,8 +31,9 @@ result by value. Collection of objects are implemented via the standard
 library container `std::vector<>`, instantiated accordingly.
 
 Although there are many available quantum computing libraries/simulators
-written in various programming languages, see [1] for a
-comprehensive list, I hope what makes
+written in various programming languages, see 
+[List of Quantum Computing Simulators](http://www.quantiki.org/wiki/List_of_QC_simulators) 
+for a comprehensive list, I hope what makes
 [Quantum++](https://github.com/vsoftco/qpp) different is the ease of
 use, portability and high performance. The library is not restricted to
 specific quantum information tasks, but it is intended to be
@@ -615,7 +616,7 @@ useful suggestions.
 
 [1]{}
 
-[1](http://www.quantiki.org/wiki/List_of_QC_simulators)
+
 
 Michael A. Nielsen and Isaac L. Chuang. . Cambridge University Press,
 Cambridge, 5th edition, 2000.
