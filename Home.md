@@ -13,8 +13,7 @@ state or of 12 qubits in a mixed state reasonably fast.
 Introduction
 ============
 
-[Quantum++](https://github.com/vsoftco/qpp), available online at
-<https://github.com/vsoftco/qpp>, is a C++11 general purpose quantum
+[Quantum++](https://github.com/vsoftco/qpp) is a C++11 general purpose quantum
 computing library, composed solely of header files. It uses the
 [Eigen 3](http://eigen.tuxfamily.org/) linear algebra library and, if
 available, the [OpenMP](http://openmp.org/) multi-processing library.
@@ -31,8 +30,8 @@ result by value. Collection of objects are implemented via the standard
 library container `std::vector<>`, instantiated accordingly.
 
 Although there are many available quantum computing libraries/simulators
-written in various programming languages, see 
-[List of Quantum Computing Simulators](http://www.quantiki.org/wiki/List_of_QC_simulators) 
+written in various programming languages, see the 
+[List of quantum computing simulators](http://www.quantiki.org/wiki/List_of_QC_simulators) 
 for a comprehensive list, I hope what makes
 [Quantum++](https://github.com/vsoftco/qpp) different is the ease of
 use, portability and high performance. The library is not restricted to
@@ -48,7 +47,8 @@ library, “in a nutshell" fashion, via a series of simple examples. I
 assume that the reader is familiar with the basic concepts of quantum
 mechanics/quantum information, as I do not provide any introduction to
 this field. For a comprehensive introduction to the latter see e.g.
-[@NielsenChuang:QuantumComputation]. This document is not intended to be
+M. Nielsen's and I. Chuang's [Quantum computation and quantum information](https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176/ref=sr_1_1?ie=UTF8&qid=1516125709&sr=8-1&keywords=quantum+computation+and+quantum+information) 
+excellent reference. This document is not intended to be
 a comprehensive documentation, but only a brief introduction to the
 library and its main features. For a detailed reference see the official
 manual available as a `.pdf` file in `./doc/refman.pdf`. For detailed
@@ -618,8 +618,7 @@ useful suggestions.
 
 
 
-Michael A. Nielsen and Isaac L. Chuang. . Cambridge University Press,
-Cambridge, 5th edition, 2000.
+
 
 [^1]: I implicitly assume that you use a UNIX-like system, although
     everything should translate into Windows as well, with slight
