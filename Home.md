@@ -1,7 +1,6 @@
-Abstract
+About
 ========
-
-Quantum++ is a modern general-purpose multi-threaded
+[Quantum++](https://github.com/vsoftco/qpp) is a modern general-purpose multi-threaded
 quantum computing library written in C++11 and composed solely of header
 files. The library is not restricted to qubit systems or specific
 quantum information processing tasks, being capable of simulating
@@ -15,7 +14,6 @@ state or of 12 qubits in a mixed state reasonably fast.
 
 Introduction
 ============
-
 [Quantum++](https://github.com/vsoftco/qpp) is a C++11 general purpose quantum
 computing library, composed solely of header files. It uses the
 [Eigen 3](http://eigen.tuxfamily.org/) linear algebra library and, if
@@ -62,12 +60,11 @@ If you are interesting in contributing, or for any comments or suggestions, plea
 <vgheorgh@gmail.com>.
 
 [Quantum++](https://github.com/vsoftco/qpp) is distributed under the MIT license. 
-Please see the [`LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) file for 
+Please see the [`qpp/LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) file for 
 more details.
 
 Installation
 ============
-
 To get started with [Quantum++](https://github.com/vsoftco/qpp), first
 install the [Eigen 3](http://eigen.tuxfamily.org/) library into your home directory, 
 as `$HOME/eigen`. I implicitly assume that you use a UNIX-like system, although
@@ -85,7 +82,8 @@ of [clang](http://clang.llvm.org) do not support
 
 Next we will build a simple minimal example to test that the installation was
 successful. Create a directory called `$HOME/testing`, and inside it
-create the file `minimal.cpp`, available for download in [`examples/minimal.cpp`](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp) and with 
+create the file `minimal.cpp`, available for download in 
+[`qpp/examples/minimal.cpp`](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp) and with 
 the content listed below.
 
 ```CPP
@@ -125,9 +123,11 @@ This is the |0> state:
 ````
 
 The line
+
 ```CPP
 #include "qpp.h"
 ```
+
 includes the main header file of the
 library `qpp.h` This header file includes all other necessary internal
 [Quantum++](https://github.com/vsoftco/qpp) header files. The line
@@ -137,17 +137,18 @@ using namespace qpp;
 injects the [Quantum++](https://github.com/vsoftco/qpp)'s namespace into
 the working namespace, so we don't need to prefix the library functions by
 `qpp::`. Finally the line 
+
 ```CPP
 std::cout << disp(st.z0) << '\n';
 ```
+
 displays the state |0> represented by the singleton `qpp::st.z0` in a
 nice format using the display manipulator `qpp::disp()`.
 
 Data types, constants and global objects
 ========================================
-
 All header files of [Quantum++](https://github.com/vsoftco/qpp) are
-located inside the [`include`](https://github.com/vsoftco/qpp/tree/master/include) directory. 
+located inside the [`qpp/include`](https://github.com/vsoftco/qpp/tree/master/include) directory. 
 All functions, classes and global objects defined by the library belong to the `namespace qpp`. 
 To avoid additional typing, I will omit the prefix `qpp::` in the rest of
 this document. I recommend to use `using namespace qpp;` in your main
@@ -155,82 +156,129 @@ this document. I recommend to use `using namespace qpp;` in your main
 
 Data types
 ----------
-
 The most important data types are defined in the header file [`types.h`](https://github.com/vsoftco/qpp/blob/master/include/types.h).
 We list them in the table below.
 
-  `idx`                    Index (non-negative integer), alias for `std::size_t`
-  ------------------------ --------------------------------------------------------------------------------------------------------------------------
-  `bigint`                 Big integer, alias for `long long int`
-  `cplx`                   Complex number, alias for `std::complex<double>`
-  `cmat`                   Complex dynamic matrix, alias for `Eigen::MatrixXcd`
-  `dmat`                   Double dynamic matrix, alias for `Eigen::MatrixXd`
-  `ket`                    Complex dynamic column vector, alias for `Eigen::VectorXcd`
-  `bra`                    Complex dynamic row vector, alias for `Eigen::RowVectorXcd`
-  `dyn_mat<Scalar>`        Dynamic matrix template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>`
-  `dyn_col_vect<Scalar>`   Dynamic column vector template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, Eigen::Dynamic, 1>`
-  `dyn_row_vect<Scalar>`   Dynamic row vector template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, 1, Eigen::Dynamic>`
-
-  : User-defined data types[]{data-label="tbl1"}
+| Type                    | Description                                                                                                              |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| `idx`                   | Index (non-negative integer), alias for `std::size_t`                                                                    |
+| `bigint`                | Big integer, alias for `long long int`                                                                                   |
+| `cplx`                  | Complex number, alias for `std::complex<double>`                                                                         |
+| `cmat`                  | Complex dynamic matrix, alias for `Eigen::MatrixXcd`                                                                     |
+| `dmat`                  | Double dynamic matrix, alias for `Eigen::MatrixXd`                                                                       |
+| `ket`                   | Complex dynamic column vector, alias for `Eigen::VectorXcd`                                                              |
+| `bra`                   | Complex dynamic row vector, alias for `Eigen::RowVectorXcd`                                                              |                                        
+| `dyn_mat<Scalar>`       | Dynamic matrix template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>` |
+| `dyn_col_vect<Scalar>`  | Dynamic column vector template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, Eigen::Dynamic, 1>`       |
+| `dyn_row_vect<Scalar>`  | Dynamic row vector template alias over the field `Scalar`, alias for `Eigen::Matrix<Scalar, 1, Eigen::Dynamic>`          |
 
 Constants
 ---------
-
 The important constants are defined in the header file `constants.h` and
 are listed in Table \[tbl2\].
-
-  `constexpr idx maxn = 64;`                                         Maximum number of allowed qu(d)its (subsystems)
-  ------------------------------------------------------------------ --------------------------------------------------------------
-  `constexpr double pi = 3.1415...;`                                 $\pi$
-  `constexpr double ee = 2.7182...;`                                 $e$, base of natural logarithms
-  `constexpr double eps = 1e-12;`                                    Used in comparing floating point values to zero
-  `constexpr double chop = 1e-10;`                                   Used in display manipulators to set numbers to zero
-  `constexpr double infty = ...;`                                    Used to denote infinity in double precision
-  `constexpr cplx operator""_i` `    (unsigned long long int x)`     User-defined literal for the imaginary number $i:=\sqrt{-1}$
-  `constexpr cplx operator""_i` `    (unsigned long double int x)`   User-defined literal for the imaginary number $i:=\sqrt{-1}$
-  `cplx omega(idx D)`                                                $D$-th root of unity $e^{2\pi i/D}$
-
-  : User-defined constants[]{data-label="tbl2"}
+ 
+| Constant                                                     | Description                                                  |
+|--------------------------------------------------------------|--------------------------------------------------------------|
+| `constexpr idx maxn = 64;`                                   | Maximum number of allowed qu(d)its (subsystems)              |
+| `constexpr double pi = 3.1415...;`                           | $\pi$                                                        |
+| `constexpr double ee = 2.7182...;`                           | $e$, base of natural logarithms                              |
+| `constexpr double eps = 1e-12;`                              | Used in comparing floating point values to zero              | 
+| `constexpr double chop = 1e-10;`                             | Used in display manipulators to set numbers to zero          |
+| `constexpr double infty = ...;`                              | Used to denote infinity in double precision                  |
+| `constexpr cplx operator""_i` `(unsigned long long int x)`   | User-defined literal for the imaginary number $i:=\sqrt{-1}$ |
+| `constexpr cplx operator""_i` `(unsigned long double int x)` | User-defined literal for the imaginary number $i:=\sqrt{-1}$ |
+| `cplx omega(idx D)`                                          | $D$-th root of unity $e^{2\pi i/D}$                          |
 
 Singleton classes and their global instances
 --------------------------------------------
-
 Some useful classes are defined as singletons and their instances are
 globally available, being initialized at runtime in the header file
 `qpp.h`, before `main()`. They are listed in Table \[tbl3\].
 
-  `const Init& init = Init::get_instance();`                                Library initialization
-  ------------------------------------------------------------------------- -----------------------------------
-  `const Codes& codes = Codes::get_instance();`                             Quantum error correcting codes
-  `const Gates& gt = Gates::get_instance();`                                Quantum gates
-  `const States& st = States::get_instance();`                              Quantum states
-  `RandomDevices& rdevs =` ` RandomDevices::get_thread_local_instance();`   Random devices/generators/engines
-
-  : Global singleton classes and instances[]{data-label="tbl3"}
+| Singleton                                                              | Description
+|------------------------------------------------------------------------|-----------------------------------|
+| `const Init& init = Init::get_instance();`                             | Library initialization            |
+| `const Codes& codes = Codes::get_instance();`                          | Quantum error correcting codes    |
+| `const Gates& gt = Gates::get_instance();`                             | Quantum gates                     |
+| `const States& st = States::get_instance();`                           | Quantum states                    |
+| `RandomDevices& rdevs =` `RandomDevices::get_thread_local_instance();` | Random devices/generators/engines |
 
 Simple examples
 ===============
-
 All of the examples of this section are copied verbatim from the
-directory `./examples` and are fully compilable. For convenience, the
+directory [`qpp/examples`](https://github.com/vsoftco/qpp/tree/master/examples) 
+and are fully compilable. For convenience, the
 location of the source file is displayed in the first line of each
 example as a C++ comment. The examples are simple and demonstrate the
 main features of [Quantum++](https://github.com/vsoftco/qpp). They cover
 only a small part of library functions, but enough to get the interested
 user started. For an extensive reference of all library functions,
-including various overloads, the user should consult the complete
-reference `./doc/refman.pdf`. See the rest of the examples (not
-discussed in this document) in `./examples/`. for more comprehensive
-code snippets.
+including various overloads, the user should consult the [official
+API documentation](https://github.com/vsoftco/qpp/blob/master/doc/refman.pdf) `qpp/doc/refman.pdf`. 
+Additional examples (not
+discussed in this document) are located in [`qpp/examples/](https://github.com/vsoftco/qpp/tree/master/examples).
 
 Gates and states
 ----------------
-
 Let us introduce the main objects used by
 [Quantum++](https://github.com/vsoftco/qpp): gates, states and basic
-operations. Consider the code in Listing \[lst2\].
+operations. Consider the example 
+[qpp/examples/gates_states.cpp](https://github.com/vsoftco/qpp/blob/master/examples/gates_states.cpp) 
+with content listed below.
+
+```CPP
+// Gates and states
+// Source: ./examples/gates_states.cpp
+#include <iostream>
+
+#include "qpp.h"
+
+int main() {
+    using namespace qpp;
+    ket psi = st.z0; // |0> state
+    cmat U = gt.X;
+    ket result = U * psi;
+
+    std::cout << ">> The result of applying the bit-flip gate X on |0> is:\n";
+    std::cout << disp(result) << '\n';
+
+    psi = 10_q;  // |10> state
+    U = gt.CNOT; // Controlled-NOT
+    result = U * psi;
+
+    std::cout << ">> The result of applying the gate CNOT on |10> is:\n";
+    std::cout << disp(result) << '\n';
+
+    U = randU();
+    std::cout << ">> Generating a random one-qubit gate U:\n";
+    std::cout << disp(U) << '\n';
+
+    result = applyCTRL(psi, U, {0}, {1}); // Controlled-U
+    std::cout << ">> The result of applying the CTRL-U gate on |10> is:\n";
+    std::cout << disp(result) << '\n';
+}
+```
 
 A possible output is:
+
+```text
+>> The result of applying the bit-flip gate X on |0> is:
+0
+1
+>> The result of applying the gate CNOT on |10> is:
+0
+0
+0
+1
+>> Generating a random one-qubit gate U:
+-0.50206 + 0.0354176i  -0.422949 - 0.753522i
+-0.206807 - 0.838995i  -0.390495 + 0.317541i
+>> The result of applying the CTRL-U gate on |10> is:
+                   0
+                   0
+-0.50206 + 0.0354176i
+-0.206807 - 0.838995i
+```
 
 In line 4 of Listing \[lst2\] we bring the namespace `qpp` into the
 global namespace.
@@ -252,7 +300,7 @@ In line 17 we reassign to `psi` the state $|10\rangle$ via the function
 `mket()`. We could have also used the [Eigen
 3](http://eigen.tuxfamily.org/) insertion operator
 
-``` {numbers="none"}
+``` {numbers="1"}
 ket psi(4); // must specify the dimension before insertion of elements via <<
 psi << 0, 0, 1, 0;
 ```
