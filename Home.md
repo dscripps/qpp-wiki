@@ -1,4 +1,7 @@
-**Abstract:** Quantum++ is a modern general-purpose multi-threaded
+Abstract
+========
+
+Quantum++ is a modern general-purpose multi-threaded
 quantum computing library written in C++11 and composed solely of header
 files. The library is not restricted to qubit systems or specific
 quantum information processing tasks, being capable of simulating
@@ -27,10 +30,11 @@ related functions and a few useful classes. The main data types are
 complex vectors and complex matrices, which I will describe below. Most
 functions operate on such vectors/matrices and *always* return the
 result by value. Collection of objects are implemented via the standard
-library container `std::vector<>`, instantiated accordingly.
+library container [`std::vector<>`](http://en.cppreference.com/w/cpp/container/vector), 
+instantiated accordingly.
 
 Although there are many available quantum computing libraries/simulators
-written in various programming languages, see the 
+written in various programming languages, see e.g.
 [List of quantum computing simulators](http://www.quantiki.org/wiki/List_of_QC_simulators) 
 for a comprehensive list, I hope what makes
 [Quantum++](https://github.com/vsoftco/qpp) different is the ease of
@@ -42,38 +46,36 @@ implementing the library as it is by now a mature standard, fully (or
 almost fully) implemented by most important compilers, and highly
 portable.
 
-In the reminder of this manuscript I describe the main features of the
+In the reminder of this document I will describe the main features of the
 library, “in a nutshell" fashion, via a series of simple examples. I
 assume that the reader is familiar with the basic concepts of quantum
 mechanics/quantum information, as I do not provide any introduction to
 this field. For a comprehensive introduction to the latter see e.g.
-M. Nielsen's and I. Chuang's [Quantum computation and quantum information](https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176/ref=sr_1_1?ie=UTF8&qid=1516125709&sr=8-1&keywords=quantum+computation+and+quantum+information) 
+[M. Nielsen's and I. Chuang's Quantum computation and quantum information](https://www.amazon.ca/Quantum-Computation-Information-10th-Anniversary/dp/1107002176/ref=sr_1_1?ie=UTF8&qid=1516125709&sr=8-1&keywords=quantum+computation+and+quantum+information) 
 excellent reference. This document is not intended to be
 a comprehensive documentation, but only a brief introduction to the
-library and its main features. For a detailed reference see the official
-manual available as a `.pdf` file in `./doc/refman.pdf`. For detailed
-installation instructions as well as for additional information
-regarding the library see the main repository page at
-<https://github.com/vsoftco/qpp>. If you are interesting in
-contributing, or for any comments or suggestions, please email me at
+library and its main features. For a detailed reference see the [official
+API documentation](https://github.com/vsoftco/qpp/blob/master/doc/refman.pdf). 
+For detailed installation instructions as well as for additional information
+regarding the library see the [main repository page](https://github.com/vsoftco/qpp/blob/master/). 
+If you are interesting in contributing, or for any comments or suggestions, please email me at
 <vgheorgh@gmail.com>.
 
 [Quantum++](https://github.com/vsoftco/qpp) is distributed under the MIT license. 
-Please see [`./LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) for more details.
+Please see the [`LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) file for 
+more details.
 
 Installation
 ============
 
 To get started with [Quantum++](https://github.com/vsoftco/qpp), first
-install the [Eigen 3](http://eigen.tuxfamily.org/) library from
-<http://eigen.tuxfamily.org> into your home directory[^1], as
-`$HOME/eigen`. You can change the name of the directory, but in the
+install the [Eigen 3](http://eigen.tuxfamily.org/) library into your home directory[^1], 
+as `$HOME/eigen`. You can change the name of the directory, but in the
 current document I will use `$HOME/eigen` as the location of the
-[Eigen 3](http://eigen.tuxfamily.org/) library. Next, download the
-[Quantum++](https://github.com/vsoftco/qpp) library
-from <https://github.com/vsoftco/qpp/> and unzip it into the home
+[Eigen 3](http://eigen.tuxfamily.org/) library. Next, download or clone
+[Quantum++](https://github.com/vsoftco/qpp) library into the home
 directory as `$HOME/qpp`. Finally, make sure that your compiler supports
-C++11 and preferably [OpenMP](http://openmp.org/). For a compiler I
+C++11 and preferably [OpenMP](http://openmp.org/). As a compiler I
 recommend [g++](https://gcc.gnu.org/) version 5.0 or later or
 [clang](http://clang.llvm.org) version 3.7 or later (previous versions
 of [clang](http://clang.llvm.org) do not support
@@ -81,20 +83,29 @@ of [clang](http://clang.llvm.org) do not support
 
 We next build a simple minimal example to test that the installation was
 successful. Create a directory called `$HOME/testing`, and inside it
-create the file `minimal.cpp`, with the content listed in ['./examples/minimal.cpp'](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp). 
+create the file `minimal.cpp`, with the content listed in ['examples/minimal.cpp'](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp). 
 
-Next, compile the file using a C++11 compliant compiler. In the
+Next, compile the file using the C++11 compliant compiler. In the
 following I assume you use [g++](https://gcc.gnu.org/), but the building
 instructions are similar for other compilers. From the directory
 `$HOME/testing` type
 
-    g++ -std=c++11 -isystem $HOME/eigen -I $HOME/qpp/include minimal.cpp -o minimal
+```bash
+g++ -std=c++11 -isystem $HOME/eigen -I $HOME/qpp/include minimal.cpp -o minimal
+```
 
 Your compile command may differ from the above, depending on the C++
 compiler and operating system. If everything went fine, the above
 command should build an executable `minimal` in `$HOME/testing`, which
 can be run by typing `./minimal`. The output should be similar to the
 following:
+
+```text
+Hello Quantum++!
+This is the |0> state:
+1
+0
+````
 
 In line 4 of Listing \[lst1\] we include the main header file of the
 library `qpp.h` This header file includes all other necessary internal
