@@ -1,0 +1,1 @@
+(c) Copyright 2013 - 2018 Vlad Gheorghiu (vgheorgh@gmail.com)
