@@ -10,7 +10,6 @@ Quantum++ can successfully simulate the evolution of 25 qubits in a pure
 state or of 12 qubits in a mixed state reasonably fast.
 
 
-
 Introduction
 ============
 
@@ -19,10 +18,10 @@ Introduction
 computing library, composed solely of header files. It uses the
 [Eigen 3](http://eigen.tuxfamily.org/) linear algebra library and, if
 available, the [OpenMP](http://openmp.org/) multi-processing library.
-For additional [Eigen 3](http://eigen.tuxfamily.org/) documentation see
-<http://eigen.tuxfamily.org/dox/>. For a simple
-[Eigen 3](http://eigen.tuxfamily.org/) quick ASCII reference see
-<http://eigen.tuxfamily.org/dox/AsciiQuickReference.txt>.
+For additional [Eigen 3](http://eigen.tuxfamily.org/) documentation please
+click [here](http://eigen.tuxfamily.org/dox/).
+For a simple [Eigen 3](http://eigen.tuxfamily.org/) quick ASCII reference see
+please click [here](http://eigen.tuxfamily.org/dox/AsciiQuickReference.txt).
 
 The simulator defines a large collection of (template) quantum computing
 related functions and a few useful classes. The main data types are
@@ -32,7 +31,7 @@ result by value. Collection of objects are implemented via the standard
 library container `std::vector<>`, instantiated accordingly.
 
 Although there are many available quantum computing libraries/simulators
-written in various programming languages, see [@QCsims] for a
+written in various programming languages, see [1] for a
 comprehensive list, I hope what makes
 [Quantum++](https://github.com/vsoftco/qpp) different is the ease of
 use, portability and high performance. The library is not restricted to
@@ -616,8 +615,7 @@ useful suggestions.
 
 [1]{}
 
-List of [QC]{} simulators, available online at
-<http://www.quantiki.org/wiki/List_of_QC_simulators>.
+[1](http://www.quantiki.org/wiki/List_of_QC_simulators)
 
 Michael A. Nielsen and Isaac L. Chuang. . Cambridge University Press,
 Cambridge, 5th edition, 2000.
