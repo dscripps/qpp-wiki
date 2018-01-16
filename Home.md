@@ -69,8 +69,10 @@ Installation
 ============
 
 To get started with [Quantum++](https://github.com/vsoftco/qpp), first
-install the [Eigen 3](http://eigen.tuxfamily.org/) library into your home directory[^1], 
-as `$HOME/eigen`. You can change the name of the directory, but in the
+install the [Eigen 3](http://eigen.tuxfamily.org/) library into your home directory, 
+as `$HOME/eigen`. I implicitly assume that you use a UNIX-like system, although
+everything should translate into Windows as well, with slight
+modifications. You can change the name of the directory, but in the
 current document I will use `$HOME/eigen` as the location of the
 [Eigen 3](http://eigen.tuxfamily.org/) library. Next, download or clone
 [Quantum++](https://github.com/vsoftco/qpp) library into the home
@@ -81,9 +83,24 @@ recommend [g++](https://gcc.gnu.org/) version 5.0 or later or
 of [clang](http://clang.llvm.org) do not support
 [OpenMP](http://openmp.org/)). You are now ready to go!
 
-We next build a simple minimal example to test that the installation was
+Next we will build a simple minimal example to test that the installation was
 successful. Create a directory called `$HOME/testing`, and inside it
-create the file `minimal.cpp`, with the content listed in ['examples/minimal.cpp'](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp). 
+create the file `minimal.cpp`, available for download in [`examples/minimal.cpp`](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp) and with 
+the content listed below.
+
+```CPP
+// Minimal example
+// Source: ./examples/minimal.cpp
+#include <iostream>
+
+#include "qpp.h"
+
+int main() {
+    using namespace qpp;
+    std::cout << "Hello Quantum++!\nThis is the |0> state:\n";
+    std::cout << disp(st.z0) << '\n';
+}
+```
 
 Next, compile the file using the C++11 compliant compiler. In the
 following I assume you use [g++](https://gcc.gnu.org/), but the building
@@ -107,27 +124,40 @@ This is the |0> state:
 0
 ````
 
-In line 4 of Listing \[lst1\] we include the main header file of the
+The line
+```CPP
+#include "qpp.h"
+```
+includes the main header file of the
 library `qpp.h` This header file includes all other necessary internal
-[Quantum++](https://github.com/vsoftco/qpp) header files. In line 11 we
-display the state $|0\rangle$ represented by the singleton `st.z0` in a
-nice format using the display manipulator `disp()`.
+[Quantum++](https://github.com/vsoftco/qpp) header files. The line
+```CPP
+using namespace qpp;
+```
+injects the [Quantum++](https://github.com/vsoftco/qpp)'s namespace into
+the working namespace, so we don't need to prefix the library functions by
+`qpp::`. Finally the line 
+```CPP
+std::cout << disp(st.z0) << '\n';
+```
+displays the state |0> represented by the singleton `qpp::st.z0` in a
+nice format using the display manipulator `qpp::disp()`.
 
 Data types, constants and global objects
 ========================================
 
 All header files of [Quantum++](https://github.com/vsoftco/qpp) are
-located inside the `./include` directory. All functions, classes and
-global objects defined by the library belong to the `namespace qpp`. To
-avoid additional typing, I will omit the prefix `qpp::` in the rest of
+located inside the [`include`](https://github.com/vsoftco/qpp/tree/master/include) directory. 
+All functions, classes and global objects defined by the library belong to the `namespace qpp`. 
+To avoid additional typing, I will omit the prefix `qpp::` in the rest of
 this document. I recommend to use `using namespace qpp;` in your main
 `.cpp` file.
 
 Data types
 ----------
 
-The most important data types are defined in the header file `types.h`.
-We list them in Table \[tbl1\].
+The most important data types are defined in the header file [`types.h`](https://github.com/vsoftco/qpp/blob/master/include/types.h).
+We list them in the table below.
 
   `idx`                    Index (non-negative integer), alias for `std::size_t`
   ------------------------ --------------------------------------------------------------------------------------------------------------------------
@@ -631,9 +661,7 @@ useful suggestions.
 
 
 
-[^1]: I implicitly assume that you use a UNIX-like system, although
-    everything should translate into Windows as well, with slight
-    modifications
+[^1]: 
 
 [^2]: [Quantum++](https://github.com/vsoftco/qpp) uses the C/C++
     numbering convention, with indexes starting from zero.
