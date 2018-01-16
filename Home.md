@@ -10,3 +10,10 @@ library’s simulation capabilities are only restricted by the amount of
 available physical memory. On a typical machine (Intel i5 8Gb RAM)
 Quantum++ can successfully simulate the evolution of 25 qubits in a pure
 state or of 12 qubits in a mixed state reasonably fast.
+
+Acknowledgements
+================
+I acknowledge financial support from Industry Canada and from the
+Natural Sciences and Engineering Research Council of Canada (NSERC). I
+thank Kassem Kalach for carefully reading this documentation and providing
+useful suggestions.
