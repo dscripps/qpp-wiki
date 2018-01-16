@@ -58,7 +58,8 @@ regarding the library see the main repository page at
 contributing, or for any comments or suggestions, please email me at
 <vgheorgh@gmail.com>.
 
-[Quantum++](https://github.com/vsoftco/qpp) is distributed under the MIT license. Please see `./LICENSE` for more details.
+[Quantum++](https://github.com/vsoftco/qpp) is distributed under the MIT license. 
+Please see [`./LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) for more details.
 
 Installation
 ============
@@ -80,24 +81,7 @@ of [clang](http://clang.llvm.org) do not support
 
 We next build a simple minimal example to test that the installation was
 successful. Create a directory called `$HOME/testing`, and inside it
-create the file `minimal.cpp`, with the content listed below. 
-
-```C
-// Minimal example
-// Source: ./examples/minimal.cpp
-#include <iostream>
-i#nclude "qpp.h"
-
-using namespace qpp;
-
-int main() {
-    std::cout << "Hello Quantum++!\nThis is the |0> state:\n";
-    std::cout << disp(st.z0) << '\n';
-}
-```
-
-A verbatim copy of the above program is also available
-at `$HOME/qpp/examples/minimal.cpp`.
+create the file `minimal.cpp`, with the content listed in ['./examples/minimal.cpp'](https://github.com/vsoftco/qpp/blob/master/examples/minimal.cpp). 
 
 Next, compile the file using a C++11 compliant compiler. In the
 following I assume you use [g++](https://gcc.gnu.org/), but the building
