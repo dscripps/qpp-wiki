@@ -12,8 +12,9 @@
 ---
 ## License
 
-Quantum++ is licensed under the MIT license, see COPYING for the full terms 
-and conditions of the license.
+[Quantum++](https://github.com/vsoftco/qpp) is distributed under the MIT license. 
+Please see the [`LICENSE`](https://github.com/vsoftco/qpp/blob/master/LICENSE) file for 
+more details.
 
 ---
 ## Acknowledgements
