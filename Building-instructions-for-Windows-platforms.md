@@ -1,4 +1,4 @@
-## Using [Visual Studio](https://www.visualstudio.com)
+## Via [Visual Studio](https://www.visualstudio.com)
 
 - Quantum++ contains a full [Visual Studio 2017](https://www.visualstudio.com) 
 solution under the folder `./VisualStudio`. The solution 
@@ -24,9 +24,9 @@ on [Visual Studio 2015/2017](https://www.visualstudio.com) if you
     *Project/Properties/Configuration Properties/C_C++/Language/Open MP Support*
 .
     
-## Using [Cygwin](https://www.cygwin.com)
+## Via [Cygwin](https://www.cygwin.com)
 
-- Use the building instructions as for POSIX systems.
+- Use the [same building instructions](https://github.com/vsoftco/qpp/wiki/Building-instructions-for-POSIX-compliant-platforms) as for POSIX systems.
 - **Note:** some earlier versions of 
 [Cygwin](https://www.cygwin.com) had a bug related to lack of support for some 
 C++11 math functions, see
