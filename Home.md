@@ -9,7 +9,11 @@
 - [7. Advanced topics](https://github.com/vsoftco/qpp/wiki/7.-Advanced-topics)
 - [8. Unit testing](https://github.com/vsoftco/qpp/wiki/8.-Unit-testing)
 
+---
+## License
 
+Quantum++ is licensed under the MIT license, see COPYING for the full terms 
+and conditions of the license.
 
 ---
 ## Acknowledgements
