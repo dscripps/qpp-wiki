@@ -1,0 +1,33 @@
+Quantum++ was extensively tested under multiple flavours of Linux,
+[OS X/macOS](http://www.apple.com/osx), 
+[Windows XP/7/10](http://windows.microsoft.com/),
+[Solaris 11.x](https://www.oracle.com/solaris/solaris11/index.html)
+via a suite of unit tests constructed with
+[Google Test 1.8.0](https://github.com/google/googletest) (included with the 
+project in `./unit_tests/lib/gtest-1.8.0`). The source code of the unit tests 
+is provided under `./unit_tests/tests`. 
+
+To build and run the unit tests under any POSIX-compliant platform, I 
+strongly recommend to use [CMake](http://www.cmake.org/) version 3.0 or 
+later. Assuming you do use [CMake](http://www.cmake.org/), switch to the  
+`./unit_tests` directory, create a `build` directory inside it, then from the 
+newly created `./unit_tests/build` type
+
+    cmake ..
+    make
+    
+The commands above build `./unit_tests/build/tests/qpp_testing`, which you 
+then may run. Note that `qpp::Timer` tests or tests related to random functions
+such as `qpp::rand()` may sometime (very rarely) fail, due to timing 
+imprecision or statistical errors. Such behaviour is perfectly normal.
+
+To run the unit tests in [Windows](http://windows.microsoft.com/) under
+[Visual Studio](https://www.visualstudio.com), use the provided solution and 
+run the `qpp_testing` project from the Solution Explorer.
+
+## Note
+
+The [CMake](http://www.cmake.org/) configuration file 
+`./unit_tests/CMakeLists.txt` defines almost the same building options and default 
+choices as the main `./CMakeLists.txt` of Quantum++.  Therefore you should modify `./unit_tests/CMakeLists.txt` 
+accordingly in case your [MATLAB](http://www.mathworks.com/products/matlab/) include/library files are in a different location than the one assumed in the file, or if you want to further customize the unit testing build.
