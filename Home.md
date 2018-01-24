@@ -22,4 +22,4 @@ more details.
 I acknowledge financial support from Industry Canada and from the
 Natural Sciences and Engineering Research Council of Canada (NSERC). I
 thank Kassem Kalach for carefully reading this documentation and providing
-useful suggestions.
+very useful suggestions for improving it.
