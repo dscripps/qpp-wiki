@@ -23,3 +23,8 @@ I acknowledge financial support from Industry Canada and from the
 Natural Sciences and Engineering Research Council of Canada (NSERC). I
 thank Kassem Kalach for carefully reading this documentation and providing
 very useful suggestions for improving it.
+
+---
+## Languages
+
+This wiki is also available in [Japanese (日本語)](https://github.com/vsoftco/qpp/wiki/Ja-JP/Home).
